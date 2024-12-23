@@ -23,3 +23,7 @@ go.work.sum
 
 # env file
 .env
+
+# Measurements files
+measurements_s.txt
+measurements.txt
