@@ -10,9 +10,17 @@ import (
 // BRC functions, each function processes a file
 type brcFunc func(string) string
 
-var brcFuncs = []brcFunc{processFile_1, processFile_2}
+var brcFuncs = []brcFunc{
+	// processFile_1,
+	// processFile_2,
+	processFile_3,
+	processFile_4,
+}
+
+var maxGoroutines = runtime.NumCPU()
 
 func main() {
+	// const fileName = "measurements_s.txt"
 	const fileName = "measurements.txt"
 	const numRuns = 3
 

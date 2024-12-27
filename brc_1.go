@@ -1,13 +1,5 @@
 package main
 
-// Packages:
-// 	bufio: implements buffered I/O. It wraps an io.Reader or io.Writer object, creating another object (Reader or Writer) that also implements the interface but provides buffering and some help for textual I/O.
-// 	fmt: implements formatted I/O with functions analogous to C's printf and scanf. The format 'verbs' are derived from C's but are simpler.
-// 	os: provides a platform-independent interface to operating system functionality, including file I/O, command-line arguments, and environment variables.
-// 	strconv: implements conversions to and from string representations of basic data types.
-// 	strings: implements simple functions to manipulate UTF-8 encoded strings.
-// 	sort: provides primitives for sorting slices and user-defined collections.
-
 import (
 	"bufio"
 	"fmt"
@@ -36,7 +28,8 @@ func processFile_1(fileName string) string {
 		line := scanner.Text()            // read the line
 		parts := strings.Split(line, ";") // split the line by comma
 
-		if len(parts) < 2 { // check if there are at least two parts
+		// check if there are at least two parts
+		if len(parts) < 2 {
 			fmt.Println("Invalid line format: ", line)
 			continue
 		}
@@ -48,8 +41,10 @@ func processFile_1(fileName string) string {
 			return fmt.Sprintf("Error parsing measurement: %v", err)
 		}
 
-		if _, exists := result[location]; !exists { // if the location is not in the map, add it
-			result[location] = []float64{measurement, measurement, measurement, 1} // [min, max, sum, count]
+		// if the location is not in the map, add it
+		if _, exists := result[location]; !exists {
+			// [min, max, sum, count]
+			result[location] = []float64{measurement, measurement, measurement, 1}
 		} else { // if the location is in the map, update the values
 			_result := result[location]
 
