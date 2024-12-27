@@ -11,8 +11,8 @@ import (
 type brcFunc func(string) string
 
 var brcFuncs = []brcFunc{
-	// processFile_1,
-	// processFile_2,
+	processFile_1,
+	processFile_2,
 	processFile_3,
 	processFile_4,
 }
